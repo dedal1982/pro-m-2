@@ -1,0 +1,100 @@
+@charset "UTF-8";
+@import "../css/index.css";
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+.accordion {
+  margin: 100px auto;
+  max-width: 1440px;
+  width: 100%;
+  box-shadow: 0 1px 8px rgba(0, 0, 0, 0.25);
+}
+.accordion input[name=panel] {
+  display: none;
+}
+.accordion label {
+  font-family: "Actor", sans-serif;
+  position: relative;
+  display: block;
+  height: 60px;
+  background: #ffffff;
+  border-top: 1px solid #fff;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+  box-shadow: inset 0 2px 0 #fff;
+  font-size: 1.3em;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.75);
+  color: #000;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.865, 0.14, 0.095, 0.87);
+  padding: 10px 20px;
+}
+.accordion label:after {
+  content: "❯";
+  float: right;
+  position: absolute;
+  font-size: 15px;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #aaa6a6;
+  text-align: center;
+  transform: rotate(90deg);
+}
+.accordion label:hover {
+  color: #666;
+}
+.accordion input:checked + label {
+  color: #000;
+}
+.accordion input:checked + label:after {
+  content: "❮";
+  background: #2ec8d7;
+  line-height: 0.8em;
+  color: #ffffff;
+}
+.accordion .accordion__content {
+  overflow: hidden;
+  height: 0px;
+  position: relative;
+  padding: 0 1.5em;
+  background: #2ec8d7;
+  color: #ffffff;
+  transition: height 0.4s cubic-bezier(0.865, 0.14, 0.095, 0.87);
+}
+.accordion .accordion__content .accordion__body {
+  font-size: 1em;
+  line-height: 1.5em;
+  margin: 10px;
+}
+
+input[name=panel]:checked ~ .accordion__content.accordion__content--med {
+  height: -moz-fit-content;
+  height: fit-content;
+  padding: 20px 50px 20px 20px;
+}
+
+@media (max-width: 1023px) {
+  .accordion {
+    margin: 50px auto;
+  }
+  .accordion label {
+    height: auto;
+    font-size: 1em;
+    padding: 10px 50px 10px 10px;
+  }
+  .accordion input:checked + label:after {
+    background: #ffffff;
+    color: #000;
+  }
+  input[name=panel]:checked ~ .accordion__content.accordion__content--med {
+    padding: 20px 0;
+  }
+}/*# sourceMappingURL=styles.css.map */

@@ -1,0 +1,121 @@
+@import "../css/index.css";
+
+$light-white: #ffffff;
+$light-grey: #aaa6a6;
+$med-grey: #666;
+$dark-black: #000;
+$blue-light: #2ec8d7;
+
+$timing: 0.4s;
+$ease: cubic-bezier(0.865, 0.14, 0.095, 0.87);
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+.accordion {
+  margin: 100px auto;
+  max-width: 1440px;
+  width: 100%;
+  box-shadow: 0 1px 8px rgba(#000, 0.25);
+
+  input[name="panel"] {
+    display: none;
+  }
+
+  label {
+    font-family: "Actor", sans-serif;
+    position: relative;
+    display: block;
+    height: 60px;
+    background: $light-white;
+    border-top: 1px solid #fff;
+    border-bottom: 1px solid rgba(#000, 0.15);
+    box-shadow: inset 0 2px 0 #fff;
+    font-size: 1.3em;
+    text-shadow: 0 1px 0 rgba(#fff, 0.75);
+    color: $dark-black;
+    cursor: pointer;
+    transition: all $timing $ease;
+    padding: 10px 20px;
+
+    &:after {
+      content: "\276F";
+      float: right;
+      position: absolute;
+      font-size: 15px;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      width: 60px;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: $light-grey;
+      text-align: center;
+      transform: rotate(90deg);
+    }
+
+    &:hover {
+      color: $med-grey;
+    }
+  }
+
+  input:checked + label {
+    color: $dark-black;
+
+    &:after {
+      content: "\276E";
+      background: $blue-light;
+      line-height: 0.8em;
+      color: $light-white;
+    }
+  }
+
+  .accordion__content {
+    overflow: hidden;
+    height: 0px;
+    position: relative;
+    padding: 0 1.5em;
+    background: $blue-light;
+    color: $light-white;
+    transition: height $timing $ease;
+
+    .accordion__body {
+      font-size: 1em;
+      line-height: 1.5em;
+      margin: 10px;
+    }
+  }
+}
+
+input[name="panel"]:checked ~ .accordion__content.accordion__content--med {
+  height: fit-content;
+  padding: 20px 50px 20px 20px;
+}
+@media (max-width: 1023px) {
+  .accordion {
+    margin: 50px auto;
+
+    label {
+      height: auto;
+      font-size: 1em;
+      padding: 10px 50px 10px 10px;
+    }
+
+    input:checked {
+      + label {
+        &:after {
+          background: $light-white;
+          color: $dark-black;
+        }
+      }
+    }
+  }
+  input[name="panel"]:checked ~ .accordion__content.accordion__content--med {
+    padding: 20px 0;
+  }
+}
