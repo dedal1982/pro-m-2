@@ -352,14 +352,13 @@ button {
   position: relative;
   display: block;
   width: 100%;
-
+  height: 251px;
   margin: 0 auto;
 }
 .t-image {
   margin: 0 auto;
   max-width: 100%;
   height: 100%;
-  object-fit: cover;
 }
 .slide-subtitle {
   margin-top: 17px;
@@ -598,6 +597,10 @@ textarea::placeholder {
 @media (max-width: 1325px) {
   .offers__item {
     height: inherit;
+  }
+  .blog__inner {
+    flex-direction: column;
+    align-items: center;
   }
   .page {
     padding-top: 85px;
@@ -947,6 +950,7 @@ textarea::placeholder {
   cursor: pointer;
   position: relative;
 }
+
 .right-item {
   display: flex;
   flex-direction: column;
@@ -1018,6 +1022,8 @@ textarea::placeholder {
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding: 3px;
+  box-sizing: border-box;
 }
 
 .popup-content .left img {
@@ -1058,6 +1064,11 @@ textarea::placeholder {
 .popup-content .right p {
   font-weight: 400;
   font-size: 20px;
+  height: 250px;
+  overflow: auto;
+}
+.popup-content .right p::-webkit-scrollbar {
+  width: 0;
 }
 .popup-content .right span {
   font-family: unset;
@@ -1175,4 +1186,14 @@ textarea::placeholder {
   text-overflow: ellipsis;
   height: 125px;
   overflow-y: hidden;
+}
+@media (max-width: 1023px) {
+  .popup-content .right p {
+    height: 130px;
+  }
+}
+@media (max-width: 767px) {
+  .popup-content .right p {
+    height: 100px;
+  }
 }
