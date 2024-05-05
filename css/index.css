@@ -588,6 +588,7 @@ textarea::placeholder {
   color: #ffffff;
   align-self: flex-end;
   margin-top: 23px;
+  border-radius: 5px;
   transition: all 0.3s ease-in-out;
 }
 .footer__button:hover {
@@ -1068,6 +1069,9 @@ textarea::placeholder {
   overflow: auto;
 }
 .popup-content .right p::-webkit-scrollbar {
+  width: 0;
+}
+.popup-content .right p ::-moz-scrollbar {
   width: 0;
 }
 .popup-content .right span {
